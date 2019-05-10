@@ -1,0 +1,4 @@
+fixtures:
+  symlinks:
+    webserver: "#{source_dir}"
+

@@ -1,0 +1,1 @@
+In deze repo is de functionaliteit van het Reke/rspec testing gedemonstreerd op een zelf gemaakte puppet module. Tevens is deze repo ook gebruikt voor de oplevering van het PoC.

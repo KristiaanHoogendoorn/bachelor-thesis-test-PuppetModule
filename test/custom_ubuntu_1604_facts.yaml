@@ -1,0 +1,432 @@
+aio_agent_version: 5.5.8
+augeas:
+  version: 1.10.1
+disks:
+  sda:
+    model: Virtual disk
+    size: 20.00 GiB
+    size_bytes: 21474836480
+    vendor: VMware
+  sdb:
+    model: Virtual disk
+    size: 150.00 GiB
+    size_bytes: 161061273600
+    vendor: VMware
+  sr0:
+    model: VMware SATA CD00
+    size: 1.00 GiB
+    size_bytes: 1073741312
+    vendor: NECVMWar
+dmi:
+  bios:
+    release_date: 04/05/2016
+    vendor: Phoenix Technologies LTD
+    version: "6.00"
+  board:
+    manufacturer: Intel Corporation
+    product: 440BX Desktop Reference Platform
+  chassis:
+    asset_tag: No Asset Tag
+    type: Other
+  manufacturer: VMware, Inc.
+  product:
+    name: VMware Virtual Platform
+facterversion: 3.11.6
+filesystems: ext2,ext3,ext4,squashfs,vfat,xfs
+fips_enabled: false
+hypervisors:
+  vmware:
+    {}
+identity:
+  gid: 100513
+  group: domain users
+  privileged: false
+  uid: 1927910
+  user: u01h2k7
+is_virtual: true
+kernel: Linux
+kernelmajversion: "4.15"
+kernelrelease: 4.15.0-45-generic
+kernelversion: 4.15.0
+load_averages:
+  15m: 0.03
+  1m: 0.03
+  5m: 0.08
+memory:
+  swap:
+    available: 976.00 MiB
+    available_bytes: 1023406080
+    capacity: 0%
+    total: 976.00 MiB
+    total_bytes: 1023406080
+    used: 0 bytes
+    used_bytes: 0
+  system:
+    available: 28.31 GiB
+    available_bytes: 30402297856
+    capacity: 9.87%
+    total: 31.41 GiB
+    total_bytes: 33730834432
+    used: 3.10 GiB
+    used_bytes: 3328536576
+mountpoints:
+  /:
+    available: 4.12 GiB
+    available_bytes: 4424015872
+    capacity: 44.67%
+    device: /dev/mapper/VGsystem-root
+    filesystem: ext4
+    options:
+      - rw
+      - relatime
+      - errors=remount-ro
+      - data=ordered
+    size: 7.45 GiB
+    size_bytes: 7995793408
+    used: 3.33 GiB
+    used_bytes: 3571777536
+  /boot:
+    available: 94.92 MiB
+    available_bytes: 99531776
+    capacity: 58.96%
+    device: /dev/sda1
+    filesystem: ext4
+    options:
+      - rw
+      - relatime
+      - data=ordered
+    size: 231.32 MiB
+    size_bytes: 242552832
+    used: 136.40 MiB
+    used_bytes: 143021056
+  /data:
+    available: 139.20 GiB
+    available_bytes: 149464186880
+    capacity: 7.15%
+    device: /dev/mapper/VG01-LVdata
+    filesystem: xfs
+    options:
+      - rw
+      - relatime
+      - attr2
+      - inode64
+      - noquota
+    size: 149.92 GiB
+    size_bytes: 160978440192
+    used: 10.72 GiB
+    used_bytes: 11514253312
+  /data/docker/containers/0869380654e6c6b349b02cea2bb2e288bfcb9ce5321d8c1ee3109cd6bda627c4/mounts/shm:
+    available: 0 bytes
+    available_bytes: 0
+    capacity: 100%
+    device: shm
+    filesystem: tmpfs
+    options:
+      - rw
+      - nosuid
+      - nodev
+      - noexec
+      - relatime
+      - size=65536k
+    size: 0 bytes
+    size_bytes: 0
+    used: 0 bytes
+    used_bytes: 0
+  /dev/shm:
+    available: 15.71 GiB
+    available_bytes: 16865415168
+    capacity: 0%
+    device: tmpfs
+    filesystem: tmpfs
+    options:
+      - rw
+      - nosuid
+      - nodev
+    size: 15.71 GiB
+    size_bytes: 16865415168
+    used: 0 bytes
+    used_bytes: 0
+  /home:
+    available: 495.37 MiB
+    available_bytes: 519430144
+    capacity: 47.56%
+    device: /dev/mapper/VGsystem-home
+    filesystem: ext4
+    options:
+      - rw
+      - relatime
+      - data=ordered
+    size: 944.65 MiB
+    size_bytes: 990535680
+    used: 449.28 MiB
+    used_bytes: 471105536
+  /run:
+    available: 3.13 GiB
+    available_bytes: 3356413952
+    capacity: 0.49%
+    device: tmpfs
+    filesystem: tmpfs
+    options:
+      - rw
+      - nosuid
+      - noexec
+      - relatime
+      - size=3294028k
+      - mode=755
+    size: 3.14 GiB
+    size_bytes: 3373084672
+    used: 15.90 MiB
+    used_bytes: 16670720
+  /run/lock:
+    available: 5.00 MiB
+    available_bytes: 5242880
+    capacity: 0%
+    device: tmpfs
+    filesystem: tmpfs
+    options:
+      - rw
+      - nosuid
+      - nodev
+      - noexec
+      - relatime
+      - size=5120k
+    size: 5.00 MiB
+    size_bytes: 5242880
+    used: 0 bytes
+    used_bytes: 0
+  /run/user/111:
+    available: 3.14 GiB
+    available_bytes: 3373080576
+    capacity: 0%
+    device: tmpfs
+    filesystem: tmpfs
+    options:
+      - rw
+      - nosuid
+      - nodev
+      - relatime
+      - size=3294024k
+      - mode=700
+      - uid=111
+      - gid=118
+    size: 3.14 GiB
+    size_bytes: 3373080576
+    used: 0 bytes
+    used_bytes: 0
+  /run/user/1927910:
+    available: 3.14 GiB
+    available_bytes: 3373080576
+    capacity: 0%
+    device: tmpfs
+    filesystem: tmpfs
+    options:
+      - rw
+      - nosuid
+      - nodev
+      - relatime
+      - size=3294024k
+      - mode=700
+      - uid=1927910
+      - gid=100513
+    size: 3.14 GiB
+    size_bytes: 3373080576
+    used: 0 bytes
+    used_bytes: 0
+  /sys/fs/cgroup:
+    available: 15.71 GiB
+    available_bytes: 16865415168
+    capacity: 0%
+    device: tmpfs
+    filesystem: tmpfs
+    options:
+      - ro
+      - nosuid
+      - nodev
+      - noexec
+      - mode=755
+    size: 15.71 GiB
+    size_bytes: 16865415168
+    used: 0 bytes
+    used_bytes: 0
+  /tmp:
+    available: 459.71 MiB
+    available_bytes: 482035712
+    capacity: 1.05%
+    device: /dev/mapper/VGsystem-tmp
+    filesystem: ext4
+    options:
+      - rw
+      - relatime
+      - data=ordered
+    size: 464.59 MiB
+    size_bytes: 487153664
+    used: 4.88 MiB
+    used_bytes: 5117952
+  /var:
+    available: 1.97 GiB
+    available_bytes: 2115891200
+    capacity: 46.60%
+    device: /dev/mapper/VGsystem-var
+    filesystem: ext4
+    options:
+      - rw
+      - relatime
+      - data=ordered
+    size: 3.69 GiB
+    size_bytes: 3962216448
+    used: 1.72 GiB
+    used_bytes: 1846325248
+networking:
+  domain: mod.nl
+  fqdn: lqxr4111.mod.nl
+  hostname: lqxr4111
+  interfaces:
+    docker0:
+      bindings:
+        - address: 172.17.0.1
+          netmask: 255.255.0.0
+          network: 172.17.0.0
+      ip: 172.17.0.1
+      mac: "02:42:70:be:88:a9"
+      mtu: 1500
+      netmask: 255.255.0.0
+      network: 172.17.0.0
+    eth0:
+      bindings:
+        - address: 10.50.112.151
+          netmask: 255.255.254.0
+          network: 10.50.112.0
+      bindings6:
+        - address: "fe80::250:56ff:fe9b:832d"
+          netmask: "ffff:ffff:ffff:ffff::"
+          network: "fe80::"
+      ip: 10.50.112.151
+      ip6: "fe80::250:56ff:fe9b:832d"
+      mac: "00:50:56:9b:83:2d"
+      mtu: 1500
+      netmask: 255.255.254.0
+      netmask6: "ffff:ffff:ffff:ffff::"
+      network: 10.50.112.0
+      network6: "fe80::"
+    lo:
+      bindings:
+        - address: 127.0.0.1
+          netmask: 255.0.0.0
+          network: 127.0.0.0
+      ip: 127.0.0.1
+      mtu: 65536
+      netmask: 255.0.0.0
+      network: 127.0.0.0
+    veth12c7062:
+      mac: "a6:a8:65:81:88:b7"
+      mtu: 1500
+  ip: 10.50.112.151
+  ip6: "fe80::250:56ff:fe9b:832d"
+  mac: "00:50:56:9b:83:2d"
+  mtu: 1500
+  netmask: 255.255.254.0
+  netmask6: "ffff:ffff:ffff:ffff::"
+  network: 10.50.112.0
+  network6: "fe80::"
+  primary: eth0
+os:
+  architecture: amd64
+  distro:
+    codename: bionic
+    description: Ubuntu 18.04.2 LTS
+    id: Ubuntu
+    release:
+      full: "18.04"
+      major: "18.04"
+  family: Debian
+  hardware: x86_64
+  name: Ubuntu
+  release:
+    full: "18.04"
+    major: "18.04"
+  selinux:
+    enabled: false
+partitions:
+  /dev/mapper/VG01-LVdata:
+    mount: /data
+    size: 150.00 GiB
+    size_bytes: 161057079296
+  /dev/mapper/VGsystem-home:
+    mount: /home
+    size: 976.00 MiB
+    size_bytes: 1023410176
+  /dev/mapper/VGsystem-root:
+    mount: /
+    size: 7.63 GiB
+    size_bytes: 8191475712
+  /dev/mapper/VGsystem-swap_1:
+    size: 976.00 MiB
+    size_bytes: 1023410176
+  /dev/mapper/VGsystem-tmp:
+    mount: /tmp
+    size: 488.00 MiB
+    size_bytes: 511705088
+  /dev/mapper/VGsystem-var:
+    mount: /var
+    size: 3.81 GiB
+    size_bytes: 4093640704
+  /dev/sda1:
+    mount: /boot
+    size: 243.00 MiB
+    size_bytes: 254803968
+  /dev/sda2:
+    size: 1.00 KiB
+    size_bytes: 1024
+  /dev/sda5:
+    size: 19.76 GiB
+    size_bytes: 21216886784
+path: "/usr/bin:/bin:/usr/local/bin:/home/users/u01h2k7/.gem/ruby/2.5.0/bin"
+processors:
+  count: 8
+  isa: x86_64
+  models:
+    - Intel(R) Xeon(R) CPU E5-2695 v4 @ 2.10GHz
+    - Intel(R) Xeon(R) CPU E5-2695 v4 @ 2.10GHz
+    - Intel(R) Xeon(R) CPU E5-2695 v4 @ 2.10GHz
+    - Intel(R) Xeon(R) CPU E5-2695 v4 @ 2.10GHz
+    - Intel(R) Xeon(R) CPU E5-2695 v4 @ 2.10GHz
+    - Intel(R) Xeon(R) CPU E5-2695 v4 @ 2.10GHz
+    - Intel(R) Xeon(R) CPU E5-2695 v4 @ 2.10GHz
+    - Intel(R) Xeon(R) CPU E5-2695 v4 @ 2.10GHz
+  physicalcount: 8
+ruby:
+  platform: x86_64-linux
+  sitedir: /opt/puppetlabs/puppet/lib/ruby/site_ruby/2.4.0
+  version: 2.4.4
+ssh:
+  dsa:
+    fingerprints:
+      sha1: SSHFP 2 1 c6bbdc6a704148b7bdf09d1669490c96340fc04c
+      sha256: SSHFP 2 2 e1c3bfc231c66ad714184004e3b8e08e44a8574fd014bd1a8c93027758cbbd05
+    key: AAAAB3NzaC1kc3MAAACBANeOrNZ0Deg/qrCL8TVvI0XXBD/axFgAVs/hCrjx3zAXAKCjpdpAP9BXa/CWom4AIfTxPADAEnXYT7xMtdYJPEJXtKlI9YA4PkeUTtyEKFGE4HGI5rT3cAeg9a0OJbnVXepJC1KAd9JEi3m4AK5oQlFC/qmAN6kyM+9prseEJSkpAAAAFQCN/m96Dn/ei7jQTnzNvSuuez/ADQAAAIEA0hiyhQeEZML96nbTlJ5Tr+c5WzehYEpXbqVY62cufyELTR1vWeg55tzwTig6zyr6W9Zipgt9Ua95Kv9p72YyiiAm4k7JofuAApBH+yLHN9PMc4lOAT4u/8THEtBsbW3SYkogPg5s/aJJ2UTGCbZIthrvEO0DYJa/kKhnw4gS2q8AAACBALi2ejPqQOcK+o6Ci8j7Kf26dYl1RcxH+KrZVZ9amVNuV3fZkDfqBbLy5SOQerC5mEe7sqd/jyB/QA0bHuiDHZY5xpGJtRSNF+yOYMz+mIWR9LjaMPDZEcLZ6rup5bd7e0s28pSCBEwShnUW2MQMTK5+FJjejKWJApvMxts0pBjN
+    type: ssh-dss
+  ecdsa:
+    fingerprints:
+      sha1: SSHFP 3 1 1d439539c37885fe0efc53f0d0d67e8d9b452c9a
+      sha256: SSHFP 3 2 e75cf409c5684e1b46df04061043356e8d7f8b1cc713fe04e4ff2e5b8979f83c
+    key: AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBEa6JwyJqYdwz7SUIHSfjfzrgQN6PcFGGIDZSuA6PAeTRABn4vaT3gIlkd9iBjg6h2HoVCOh6h9ENfJHq6UHf00=
+    type: ecdsa-sha2-nistp256
+  ed25519:
+    fingerprints:
+      sha1: SSHFP 4 1 2e5558fb017f6c11135ae11650f2bf9eab4a7665
+      sha256: SSHFP 4 2 7fa146c5f82063f26141f1c6ca69d1899beb649f8bb158455fafdda986a3527b
+    key: AAAAC3NzaC1lZDI1NTE5AAAAIMyZxt9q9/NV0wcc9Yy9S4U1P0lCx3FzX3MC2FtFOhij
+    type: ssh-ed25519
+  rsa:
+    fingerprints:
+      sha1: SSHFP 1 1 53a0ca611fb05e9851d76e1c078c6c7addfe6082
+      sha256: SSHFP 1 2 d0afff72c2e23eca457d1ac3e7310d905eb7c658f5d3f2bf88405a906eb6b0c0
+    key: AAAAB3NzaC1yc2EAAAADAQABAAABAQDJ91tLWdOxdiLrwbvk6M8FVhMuwBcQMORuxtiu5YImrKkHpiZbtYvvdweb4UxdKLfuAif2zzJTHmzSI4tlKaro4uP2cQHprNnqjzkIx18LARcE4M1c/P9g36WYYwrwICsUCyxtURTxQHGsRU2AAmtgs4owGHADLbsvBmfSh3IVHquRgjqIYRz4XFSxGPkImV9Q4Hi+cB6kMO1zAdqStCwhLG2mOv6x0pJb7k/eIMx1TizUa5mo9guE7nlqu4H0huSlVg+h8anTjpBV92Bfgd0EH4XVvz7HmgzI/RHo5Yb+qtbWKBgYurYgvX3D3xcBZ/PejgLE/RcUsu+Cvf1CH70N
+    type: ssh-rsa
+system_uptime:
+  days: 19
+  hours: 474
+  seconds: 1709763
+  uptime: 19 days
+timezone: CEST
+virtual: vmware

@@ -1,0 +1,121 @@
+stages:
+  - validate
+  - test 1
+  - test 2
+  - env-test
+  - acceptatie-test
+  - deploy-prod
+
+puppet-code:
+  stage: validate
+  before_script:
+  - bundle -v
+  - rm Gemfile.lock || true
+  - bundle install --local
+  script:
+    - bundle exec rake syntax:manifests
+  tags:
+    - docker
+  only:
+    - /(?:\b|-(1-9){1,2}[0]?|100)\b-feature.*/
+    
+templates:
+  stage: validate
+  before_script:
+  - bundle -v
+  - rm Gemfile.lock || true
+  - bundle install --local
+  script:
+    - bundle exec rake syntax:templates
+  tags:
+    - docker
+  only:
+    - /(?:\b|-(1-9){1,2}[0]?|100)\b-feature.*/
+
+hiera-data:
+  stage: validate
+  before_script:
+  - bundle -v
+  - rm Gemfile.lock || true
+  - bundle install --local
+  script:
+    - bundle exec rake syntax:hiera
+  tags:
+    - docker
+  only:
+    - /(?:\b|-(1-9){1,2}[0]?|100)\b-feature.*/
+    
+linting-check:
+  stage: validate
+  before_script:
+  - bundle -v
+  - rm Gemfile.lock || true
+  - bundle install --local
+  script:
+    - bundle exec rake lint
+  tags:
+    - docker
+  allow_failure: true
+  only:
+    - /(?:\b|-(1-9){1,2}[0]?|100)\b-feature.*/
+
+unit-test(rake):
+  stage: test 1
+  script:
+    - ls -all
+    - ruby -v
+    - gem -v
+    - bundle exec rake spec
+  tags:
+    - docker
+  only:
+    - /(?:\b|-(1-9){1,2}[0]?|100)\b-feature.*/
+    
+module-test Ubuntu 18.04:
+  stage: test 2
+  script:
+    - sudo /usr/bin/puppet apply --modulepath=/home/vagrant/builds/$CI_PROJECT_NAMESPACE/ -e "include ::$CI_PROJECT_NAME"
+  tags:
+    - ubuntu1804
+  only:
+    - /(?:\b|-(1-9){1,2}[0]?|100)\b-feature.*/
+    
+module-test RedHat 7.2:
+  stage: test 2
+  script:
+    - sudo /opt/puppetlabs/bin/puppet apply --modulepath=/home/vagrant/builds/$CI_PROJECT_NAMESPACE/ -e "include ::$CI_PROJECT_NAME"
+  only:
+    - /(?:\b|-(1-9){1,2}[0]?|100)\b-feature.*/
+  tags:
+    - rhel76 
+
+evironment-test:
+  stage: env-test
+  script:
+    - echo "r10k naar puppetmaster ontwikkel environment"
+    - echo "Voer hier een test uit op de omgeving met de nieuwe code samen met de volledige hiera data"
+    - echo "merge req naar acceptatie"
+  only:
+    - ontwikkeling
+  tags:
+    - puppet
+
+acceptatie:
+  stage: acceptatie-test
+  script:
+    - echo "r10k naar puppetmaster acceptatie environment"
+    - echo "voer hier de acceptatie test uit en laat de klant deze beoordelen en goedkeuren."
+    - echo "merge req naar prod met goedkeuring klant"
+  only:
+    - acceptatie
+  tags:
+    - puppet
+
+deploy_prod:
+  stage: deploy-prod
+  script:
+    - echo "r10k naar de puppetmaster"
+  only:
+    - master
+  tags:
+    - puppet

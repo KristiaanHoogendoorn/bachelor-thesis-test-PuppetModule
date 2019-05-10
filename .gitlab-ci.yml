@@ -1,0 +1,105 @@
+stages:
+  - validate
+  - test 1
+  - test 2
+  - env-test
+  - acceptatie-test
+  - deploy-prod
+
+puppet-code:
+  stage: validate
+  before_script:
+  - bundle -v
+  - rm Gemfile.lock || true
+  - bundle install --local
+  script:
+    - bundle exec rake syntax:manifests
+  tags:
+    - docker
+    
+templates:
+  stage: validate
+  before_script:
+  - bundle -v
+  - rm Gemfile.lock || true
+  - bundle install --local
+  script:
+    - bundle exec rake syntax:templates
+  tags:
+    - docker
+
+hiera-data:
+  stage: validate
+  before_script:
+  - bundle -v
+  - rm Gemfile.lock || true
+  - bundle install --local
+  script:
+    - bundle exec rake syntax:hiera
+  tags:
+    - docker
+    
+linting-check:
+  stage: validate
+  before_script:
+  - bundle -v
+  - rm Gemfile.lock || true
+  - bundle install --local
+  script:
+    - bundle exec rake lint
+  tags:
+    - docker
+  allow_failure: true
+
+unit-test(rake):
+  stage: test 1
+  script:
+    - ls -all
+    - ruby -v
+    - gem -v
+    - bundle exec rake spec
+  tags:
+    - docker
+    
+module-test Ubuntu 18.04:
+  stage: test 2
+  script:
+    - bash test2ubu.sh 
+    #(sudo /usr/bin/puppet apply --modulepath=/home/vagrant/builds/$CI_PROJECT_NAMESPACE/ -e "include ::$CI_PROJECT_NAME" --detailed-exitcodes && RESULT="$?"; if [[ "$RESULT" = "0" || "$RESULT" = "2" ]]; then echo "SUCCESSFULL run"; true; else echo -e "exit Code:" $RESULT "\nFAILED"; false ; fi)
+  tags:
+    - ubuntu1804
+    
+module-test RedHat 7.6:
+  stage: test 2
+  script:
+    - bash test2rh.sh
+    #(sudo /opt/puppetlabs/bin/puppet apply --modulepath=/home/vagrant/builds/$CI_PROJECT_NAMESPACE/ -e "include ::$CI_PROJECT_NAME" --detailed-exitcodes && RESULT="$?"; if [[ "$RESULT" = "0" || "$RESULT" = "2" ]]; then echo "SUCCESSFULL run"; true; else echo -e "exit Code:" $RESULT "\nFAILED"; false ; fi)
+  tags:
+    - rhel76 
+
+evironment-test:
+  stage: env-test
+  script:
+    - echo "r10k naar puppetmaster ontwikkel environment"
+    - echo "Voer hier een test uit op de omgeving met de nieuwe code samen met de volledige hiera data"
+    - echo "merge req naar acceptatie"
+  tags:
+    - puppet
+
+acceptatie:
+  stage: acceptatie-test
+  script:
+    - echo "r10k naar puppetmaster acceptatie environment"
+    - echo "voer hier de acceptatie test uit en laat de klant deze beoordelen en goedkeuren."
+    - echo "merge req naar prod met goedkeuring klant"
+  tags:
+    - puppet
+
+deploy_prod:
+  stage: deploy-prod
+  script:
+    - echo "r10k naar de puppetmaster"
+  only:
+    - master
+  tags:
+    - puppet
